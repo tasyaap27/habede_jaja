@@ -25,37 +25,78 @@ body {
   display: block;
 }
 
+/* Title */
+.birthday-text {
+  margin-top: 10px;
+  font-size: 2.5em;
+  font-weight: bold;
+  animation: fadeBounce 2s ease;
+}
+
+@keyframes fadeBounce {
+  0% { opacity: 0; transform: translateY(-50px); }
+  50% { opacity: 1; transform: translateY(10px); }
+  70% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
 /* Cake */
 .cake {
   position: relative;
-  margin: 30px auto;
-  width: 200px;
-  height: 150px;
+  margin: 40px auto;
+  width: 220px;
+  height: 200px;
 }
 
+/* Plate */
 .plate {
   position: absolute;
   bottom: 0;
-  width: 220px;
+  width: 240px;
   height: 20px;
   background: #fff;
   border-radius: 50%;
   left: -10px;
 }
 
-.cake-body {
+/* Cake layers */
+.layer-bottom {
   width: 200px;
-  height: 120px;
-  background: #ff6666;
-  border-radius: 10px;
+  height: 80px;
+  background: #ff6f6f;
+  border-radius: 15px;
   position: absolute;
   bottom: 20px;
-  left: 0;
+  left: 10px;
+  box-shadow: inset 0 -8px #e24b4b;
 }
 
+.layer-top {
+  width: 160px;
+  height: 60px;
+  background: #ff4b4b;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 90px;
+  left: 30px;
+  box-shadow: inset 0 -6px #d94040;
+}
+
+/* Icing */
+.icing {
+  width: 160px;
+  height: 25px;
+  background: #fff;
+  border-radius: 50% 50% 0 0;
+  position: absolute;
+  bottom: 150px;
+  left: 30px;
+}
+
+/* Candles */
 .candles {
   position: absolute;
-  top: -40px;
+  bottom: 170px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -63,27 +104,29 @@ body {
 }
 
 .candle {
-  width: 10px;
-  height: 40px;
-  background: #fff;
+  width: 15px;
+  height: 50px;
+  background: white;
+  display: inline-block;
+  border-radius: 5px;
   position: relative;
-  border-radius: 3px;
 }
 
 .flame {
-  width: 10px;
-  height: 15px;
+  width: 12px;
+  height: 20px;
   background: yellow;
-  border-radius: 50% 50% 50% 50%;
+  border-radius: 50%;
   position: absolute;
-  top: -15px;
-  left: 0;
-  animation: flicker 0.5s infinite alternate;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flicker 0.3s infinite alternate;
 }
 
 @keyframes flicker {
-  from { transform: scale(1); opacity: 1; }
-  to { transform: scale(1.2); opacity: 0.7; }
+  from { transform: translateX(-50%) scale(1); opacity: 1; }
+  to { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
 }
 
 /* Buttons */
@@ -117,7 +160,14 @@ button:hover:enabled {
   width: 350px;
   text-align: center;
   position: relative;
+  margin: auto;
+  animation: popIn 0.8s ease;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .popup h2 {
@@ -145,6 +195,7 @@ button:hover:enabled {
   color: #b30000;
 }
 
+/* Confetti */
 #confetti {
   position: fixed;
   top: 0;
