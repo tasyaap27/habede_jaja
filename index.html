@@ -7,36 +7,53 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Halaman Pertama -->
-    <div id="page1" class="page active">
-      <h1>🎉 HAPPY BIRTHDAY, YIN! 🎉</h1>
-      <div class="cake">
-        <div class="plate"></div>
-        <div class="cake-body"></div>
-        <div class="candles" id="candles"></div>
-      </div>
-      <button id="addCandleBtn">Add Candle</button>
-      <button id="proceedBtn" disabled>Click to Proceed</button>
+<div class="container">
+  <!-- Halaman Pertama -->
+  <div id="page1" class="page active">
+    <!-- Musik -->
+    <div class="music">
+      <iframe width="0" height="0"
+        src="https://www.youtube.com/embed/mAJa4SF_VVI?autoplay=1&loop=1&playlist=mAJa4SF_VVI"
+        frameborder="0" allow="autoplay; encrypted-media"></iframe>
     </div>
 
-    <!-- Halaman Kedua -->
-    <div id="page2" class="page">
-      <div class="popup">
-        <span class="close-btn" id="closePopup">&times;</span>
-        <h2>❤️ Hi Yin! ❤️</h2>
-        <p>
-          I may not be there to give you a hug,<br>
-          but please know that I'm sending you all the love I have.<br><br>
-          Happiest birthday! Enjoy this virtual gift from me 🎂
-        </p>
-        <img src="foto.png" alt="Birthday Photo" class="photo">
-      </div>
+    <!-- Judul Ulang Tahun -->
+    <h1 class="birthday-title">🎉 HAPPY BIRTHDAY, JAJA! 🎉</h1>
+
+    <!-- Kue Ulang Tahun -->
+    <div class="cake">
+      <div class="plate"></div>
+
+      <!-- Kue Bertingkat -->
+      <div class="cake-layer layer-bottom"></div>
+      <div class="cake-layer layer-top"></div>
+      <div class="icing"></div>
+
+      <!-- Tempat Lilin -->
+      <div class="candles" id="candles"></div>
     </div>
+
+    <!-- Tombol -->
+    <button id="addCandleBtn">Add Candle</button>
+    <button id="proceedBtn" disabled>Click to Proceed</button>
   </div>
 
-  <canvas id="confetti"></canvas>
+  <!-- Halaman Kedua -->
+  <div id="page2" class="page">
+    <div class="popup">
+      <span class="close-btn" id="closePopup">&times;</span>
+      <h2>❤️ HABEDE BUBB! ❤️</h2>
+      <p>
+        I may not be there to give you a hug,<br>
+        but please know that I'm sending you all the love I have.<br><br>
+        Happiest birthday! this is virtual gift from me 🎂
+      </p>
+      <img src="caleb.png" alt="Birthday Photo" class="photo">
+    </div>
+  </div>
+</div>
 
-  <script src="script.js"></script>
+<canvas id="confetti"></canvas>
+<script src="script.js"></script>
 </body>
 </html>
