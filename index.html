@@ -10,11 +10,11 @@
 <div class="container">
   <!-- Halaman Pertama -->
   <div id="page1" class="page active">
+
     <!-- Musik -->
     <div class="music">
-      <iframe width="0" height="0"
-        src="https://www.youtube.com/embed/mAJa4SF_VVI?autoplay=1&loop=1&playlist=mAJa4SF_VVI"
-        frameborder="0" allow="autoplay; encrypted-media"></iframe>
+      <button id="playMusicBtn">▶ Play Music</button>
+      <div id="ytPlayer" style="display:none;"></div>
     </div>
 
     <!-- Judul Ulang Tahun -->
@@ -54,6 +54,24 @@
 </div>
 
 <canvas id="confetti"></canvas>
+
 <script src="script.js"></script>
+
+<!-- Script Play Music -->
+<script>
+  let player;
+  document.getElementById("playMusicBtn").addEventListener("click", function() {
+    if (!player) {
+      player = document.createElement("iframe");
+      player.width = "0";
+      player.height = "0";
+      player.src = "https://www.youtube.com/embed/mAJa4SF_VVI?autoplay=1&loop=1&playlist=mAJa4SF_VVI";
+      player.frameBorder = "0";
+      player.allow = "autoplay; encrypted-media";
+      document.getElementById("ytPlayer").appendChild(player);
+    }
+    this.style.display = "none"; // tombol hilang setelah diklik
+  });
+</script>
 </body>
 </html>
