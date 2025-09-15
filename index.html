@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Halaman Pertama -->
+    <div id="page1" class="page active">
+      <h1>🎉 HAPPY BIRTHDAY, YIN! 🎉</h1>
+      <div class="cake">
+        <div class="plate"></div>
+        <div class="cake-body"></div>
+        <div class="candles" id="candles"></div>
+      </div>
+      <button id="addCandleBtn">Add Candle</button>
+      <button id="proceedBtn" disabled>Click to Proceed</button>
+    </div>
+
+    <!-- Halaman Kedua -->
+    <div id="page2" class="page">
+      <div class="popup">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <h2>❤️ Hi Yin! ❤️</h2>
+        <p>
+          I may not be there to give you a hug,<br>
+          but please know that I'm sending you all the love I have.<br><br>
+          Happiest birthday! Enjoy this virtual gift from me 🎂
+        </p>
+        <img src="foto.png" alt="Birthday Photo" class="photo">
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
