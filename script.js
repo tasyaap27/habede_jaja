@@ -4,10 +4,12 @@ const candles = document.getElementById("candles");
 const page1 = document.getElementById("page1");
 const page2 = document.getElementById("page2");
 const closePopup = document.getElementById("closePopup");
+const backBtn = document.getElementById("backBtn"); // tombol back baru
 const confettiCanvas = document.getElementById("confetti");
 const ctx = confettiCanvas.getContext("2d");
 
 let candleCount = 0;
+let animationId;
 
 // Resize canvas
 confettiCanvas.width = window.innerWidth;
@@ -46,6 +48,13 @@ closePopup.addEventListener("click", () => {
   stopConfetti();
 });
 
+// Back button (halaman 2 -> halaman 1)
+backBtn.addEventListener("click", () => {
+  page2.classList.remove("active");
+  page1.classList.add("active");
+  stopConfetti();
+});
+
 // Confetti logic
 let confettiParticles = [];
 function startConfetti() {
@@ -60,7 +69,8 @@ function startConfetti() {
       tilt: Math.floor(Math.random() * 10) - 10
     });
   }
-  requestAnimationFrame(drawConfetti);
+  cancelAnimationFrame(animationId); // biar tidak dobel
+  animationId = requestAnimationFrame(drawConfetti);
 }
 
 function drawConfetti() {
@@ -87,9 +97,10 @@ function drawConfetti() {
     }
   });
 
-  requestAnimationFrame(drawConfetti);
+  animationId = requestAnimationFrame(drawConfetti);
 }
 
 function stopConfetti() {
+  cancelAnimationFrame(animationId);
   ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
 }
