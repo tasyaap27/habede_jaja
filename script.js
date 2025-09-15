@@ -1,10 +1,11 @@
 const addCandleBtn = document.getElementById("addCandleBtn");
+const resetCandleBtn = document.getElementById("resetCandleBtn"); // tombol reset baru
 const proceedBtn = document.getElementById("proceedBtn");
 const candles = document.getElementById("candles");
 const page1 = document.getElementById("page1");
 const page2 = document.getElementById("page2");
 const closePopup = document.getElementById("closePopup");
-const backBtn = document.getElementById("backBtn"); // tombol back baru
+const backBtn = document.getElementById("backBtn");
 const confettiCanvas = document.getElementById("confetti");
 const ctx = confettiCanvas.getContext("2d");
 
@@ -15,7 +16,7 @@ let animationId;
 confettiCanvas.width = window.innerWidth;
 confettiCanvas.height = window.innerHeight;
 
-// Candle button
+// Add Candle button
 addCandleBtn.addEventListener("click", () => {
   if (candleCount < 5) {
     const candle = document.createElement("div");
@@ -35,6 +36,14 @@ addCandleBtn.addEventListener("click", () => {
   }
 });
 
+// Reset Candle button
+resetCandleBtn.addEventListener("click", () => {
+  candles.innerHTML = "";   // hapus semua lilin
+  candleCount = 0;          // reset hitungan lilin
+  proceedBtn.disabled = true; // disable lagi tombol Proceed
+  stopConfetti();           // stop confetti jika ada
+});
+
 // Proceed button
 proceedBtn.addEventListener("click", () => {
   page1.classList.remove("active");
@@ -48,7 +57,7 @@ closePopup.addEventListener("click", () => {
   stopConfetti();
 });
 
-// Back button (halaman 2 -> halaman 1)
+// Back button
 backBtn.addEventListener("click", () => {
   page2.classList.remove("active");
   page1.classList.add("active");
@@ -69,7 +78,7 @@ function startConfetti() {
       tilt: Math.floor(Math.random() * 10) - 10
     });
   }
-  cancelAnimationFrame(animationId); // biar tidak dobel
+  cancelAnimationFrame(animationId);
   animationId = requestAnimationFrame(drawConfetti);
 }
 
